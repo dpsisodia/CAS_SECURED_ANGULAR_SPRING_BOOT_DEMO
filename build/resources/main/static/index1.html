@@ -1,0 +1,75 @@
+<!doctype html>
+<!--Objective: to present user details by calling rest method '/user' and complain if no user info is found -->
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>CAS Demo</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/"/>
+	
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 5px;
+		    text-align: left;
+		}
+		caption {
+	        font-size:200%;
+	        color:blue;
+        }
+	</style>
+</head>
+<body ng-app="app" ng-controller="CasDemoController as demo">
+
+
+    <h1>Demo CAS User Details</h1>
+    <div class="container"></div>
+    
+	<div class="container" ng-show="demo.authenticated">
+	    Logged in as: <span ng-bind="demo.user"></span>
+	    <table style="width:100%">
+	       <caption>CAS User Attributes</caption>
+	       <tr><th>Attribute</th><th>Value</th></tr>
+		    <tr ng-repeat="(key, value) in demo.attributes">
+			  <td> {{key}} </td> <td> {{ value }} </td>
+			</tr>
+	</table>
+	<br>
+	<a href="logout">Logout</a>
+	</div>
+	<div class="container" ng-show="!demo.authenticated">
+			<h3>No one logged in</h3>
+	</div>
+	<!-- Angular controller  -->
+  <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script> 
+	<script type="text/javascript">
+	  angular.module("app", ['ngCookies'])
+	       .controller("CasDemoController", function($http,$cookies) {
+	    var self = this;
+	    $http.get("/user",{headers:{'Accept': 'application/json'}}).success(function(data) {
+	    	self.attributes=data.casAssertion.principal.attributes;
+	      	self.user = data.username;
+	      	self.authenticated = true;
+	    }).error(function() {
+	      self.user = "N/A";
+	      self.authenticated = false;
+	    });
+	  });
+	</script>
+</body>
+</html>

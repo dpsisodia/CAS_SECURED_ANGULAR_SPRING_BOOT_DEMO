@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class org.eso.example.MainAppIT</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class org.eso.example.MainAppIT</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/org.eso.example.html">org.eso.example</a> &gt; MainAppIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.098s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads</td>
+<td>0.098s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2018-11-23 12:32:01.295  INFO   --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.eso.example.MainAppIT], using SpringBootContextLoader
+2018-11-23 12:32:01.304  INFO   --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.eso.example.MainAppIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-11-23 12:32:01.305  INFO   --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.eso.example.MainAppIT]: MainAppIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-11-23 12:32:01.426  INFO   --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.eso.example.MainApp for test class org.eso.example.MainAppIT
+2018-11-23 12:32:01.568  INFO   --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-11-23 12:32:01.583  INFO   --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7460456c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@104fd9bb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2c8f0831, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@28e844fd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ed52fa9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3039a7c9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@64a3ef7f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@e0680ba, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@79594eb4, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4a3b9b9]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.3.RELEASE)
+
+2018-11-23 12:32:01.887  INFO 29392 --- [    Test worker] org.eso.example.MainAppIT                : Starting MainAppIT on GA022587 with PID 29392 (started by dsisodia in C:\Users\dsisodia\IntelliJ\EVENTSDB\TEST\CAS_SECURED_ANGULAR_SPRING_BOOT_DEMO)
+2018-11-23 12:32:01.889 DEBUG 29392 --- [    Test worker] org.eso.example.MainAppIT                : Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2018-11-23 12:32:01.892  INFO 29392 --- [    Test worker] org.eso.example.MainAppIT                : No active profile set, falling back to default profiles: default
+2018-11-23 12:32:01.963  INFO 29392 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3290000b: startup date [Fri Nov 23 12:32:01 CET 2018]; root of context hierarchy
+2018-11-23 12:32:03.384  INFO 29392 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72f38807, org.springframework.security.web.context.SecurityContextPersistenceFilter@132d5433, org.springframework.security.web.header.HeaderWriterFilter@3ebb7f8e, org.springframework.security.web.csrf.CsrfFilter@61f3d545, org.springframework.security.web.authentication.logout.LogoutFilter@2243d725, org.springframework.security.web.authentication.logout.LogoutFilter@1803e37, org.jasig.cas.client.session.SingleSignOutFilter@2a8214d, org.springframework.security.cas.web.CasAuthenticationFilter@115af60d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49dd6cc2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31dcac45, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f07e791, org.springframework.security.web.session.SessionManagementFilter@1931baf8, org.springframework.security.web.access.ExceptionTranslationFilter@46d5a841, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70904dbc]
+2018-11-23 12:32:03.728  INFO 29392 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-23 12:32:03.879  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@3290000b: startup date [Fri Nov 23 12:32:01 CET 2018]; root of context hierarchy
+2018-11-23 12:32:03.959  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/login-check]}&quot; onto public java.lang.Object org.eso.example.controller.RestApiController.login(javax.servlet.http.HttpServletRequestWrapper,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-11-23 12:32:03.961  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/user]}&quot; onto public java.lang.Object org.eso.example.controller.RestApiController.getUser() throws java.io.IOException
+2018-11-23 12:32:03.961  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/account]}&quot; onto public java.lang.Object org.eso.example.controller.RestApiController.getAccount(javax.servlet.http.HttpServletRequestWrapper,javax.servlet.http.HttpServletResponseWrapper) throws java.io.IOException
+2018-11-23 12:32:03.964  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-23 12:32:03.965  INFO 29392 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-23 12:32:04.000  INFO 29392 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-23 12:32:04.000  INFO 29392 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-23 12:32:04.055  INFO 29392 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-11-23 12:32:04.194  INFO 29392 --- [    Test worker] org.eso.example.MainAppIT                : Started MainAppIT in 2.574 seconds (JVM running for 3.79)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.2.1</a> at Nov 23, 2018 12:32:04 PM</p>
+</div>
+</div>
+</body>
+</html>

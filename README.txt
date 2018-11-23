@@ -3,7 +3,7 @@ Pre-conditions to run the application:
 2 CAS server up and running.
 
 Usage:
-1 Launch Casified Secured Server: cd CAS-ANGULAR-ANGULAR-SECURE_DEMO>gradle bootRun
+1 Launch Casified Secured Server: cd CAS-SECURED-ANGULAR-SPRING_BOOT_DEMO>gradle bootRun
 2 In browser: http:localhost:9090
 3 If there is no active CAS session (valid tgc in browser)then application will be redirected to CAS. 
 4 Enter credentials on CAS login page and hit enter. On successful authenticating user will be redirected back to the application. 

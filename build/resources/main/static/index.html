@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--Objective: redirects user to CAS server for login after checking for valid session -->
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 5px;
+		    text-align: left;
+		}
+		caption {
+	        font-size:200%;
+	        color:blue;
+        }
+	</style>
+<div ng-app="myApp" ng-controller="myCtrl as demo"> 
+ <h1>Demo CAS User Details</h1>
+
+
+<div class="container" ng-show="demo.authenticated">
+	    Logged in as: <span ng-bind="demo.user"></span>
+	    <table style="width:100%">
+	       <caption>CAS User Attributes</caption>
+	       <tr><th>Attribute</th><th>Value</th></tr>
+		    <tr ng-repeat="(key, value) in demo.attributes">
+			  <td> {{key}} </td> <td> {{ value }} </td>
+            </tr>
+        </table>
+        <br>
+		<a href="logout">Logout</a>
+	</div>
+	<div class="container" ng-show="!demo.authenticated">
+			<h3>No one logged in</h3>
+	</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    var self = this;
+	$http.get('/account'
+    
+    ).then(function mySuccess(response) {
+        alert('response recieved = '+response)
+        //alert(JSON.stringify(response.data))
+        if(JSON.stringify(response.data)!=null) 
+        var myObj = JSON.parse(JSON.stringify(response.data))
+        //alert(myObj.username)
+        if(myObj.username==undefined) { 
+    	alert('redirecting to CAS for authentication...')
+    	// We need to log into the REST server
+        // Set the return-url cookie so that the server can take us back here
+        // when startup is completed; then redirect to the startup page
+        var url = window.location.href;
+        var domain = extractHostname(url);
+        setCookie( 'return-url',                    // cookie name
+            encodeURIComponent( url ),              // cookie value
+            domain,                                 // cookie domain
+            "/" );                                  // cookie path
+
+        window.location = '/login-check';// redirect to login URL
+        throw( 'deliberate error' );                // break the request chain
+    	} else {
+            self.attributes=response.data.attributes;
+	      	self.user = response.data.username;
+	      	self.authenticated = true;
+    	}
+    }, function myError(response) {
+    	alert('error case...'+response)
+    	alert((JSON.stringify(response)))
+    	alert(response[1])
+    	
+    	//Observable.throw(response)
+        $scope.list = response.statusText;
+    }) 
+    .catch((err) => {
+        alert(err)
+	});
+	
+});
+/**
+ * Deletes and re-sets a cookie with the input parameters
+ */
+function setCookie( name, value, domain, path ) {
+    var cookie = name + '=' + value + '; domain=' + domain + '; path=' + path;
+    alert(cookie)
+    var expire = ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    document.cookie = cookie + expire;  // expire date is in the past: delete the cookie
+    document.cookie = cookie;
+}
+function extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get hostname
+
+    if (url.indexOf("//") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+
+    //find & remove port number
+    hostname = hostname.split(':')[0];
+    //find & remove "?"
+    hostname = hostname.split('?')[0];
+
+    return hostname;
+}
+
+</script>
+</body>
+</html>
